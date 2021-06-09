@@ -93,7 +93,10 @@ basic_calculations <- function(df) {
     mutate(sevo_co2e = consumption_sev/1000*1.522*130,
            sevo_co2t = sevo_co2e/1000,
            n2o_co2e = consumption_n2o*0.00183*298) %>% 
-    mutate(mean_FGF = mean(FGF, na.rm = T))
+    mutate(total_co2 = sevo_co2e + n2o_co2e) %>% 
+    mutate(miles_driven_per_case = total_co2*1000/277 * 0.62137) %>% 
+    mutate(sevo_cost_per_case = consumption_sevo*0.192) %>% 
+    mutate(sevo_cost_per_case_min = sevo_cost_per_case/case_duration_min)
   
   return(df)
   
@@ -108,20 +111,14 @@ monthly_summary <- function(df) {
     mutate(monthly_sevo_co2e = consumption_sev/1000*1.522*130,
            monthly_sevo_co2t = sevo_co2e/1000,
            monthly_n2o_co2e = consumption_n2o*0.00183*298) %>% 
-    mutate(monthly_mean_FGF = mean(FGF, na.rm = T))
+    mutate(monthly_mean_FGF = mean(FGF, na.rm = T)) %>% 
+    mutate(sevo_co2e_per_min = monthly_sevo_co2e/monthly_minutes,
+           n2o_co2e_per_min = monthly_n2o_co2e/monthly_minutes)
   
   return(df_monthly)
 }
 
 # Tring to use Nick's functions on flows:
-
-
-
-
-
-
-
-
 
 
 # Separating the list for the app in various forms ------------------------
@@ -139,16 +136,17 @@ extract_df_from_list <- function(list_of_dfs, envir = .GlobalEnv) {
 
 
 
-writeRDA_list <- function(list_of_dfs, envir = .GlobalEnv){
+writeRDA_summaries <- function(list_of_dfs, envir = .GlobalEnv){
   
   for (i in 1:length(list_of_dfs)) {
     assign(names(list_of_dfs[i]),
            write_rds(list_of_dfs[[i]], 
-                     file = paste0(names(list_of_dfs[i]), ".RDA")
+                     file = paste0(names(list_of_dfs[i]), "_case_summary.RDA")
                      ),
            envir = envir)
   
   }
 }
+
 
 

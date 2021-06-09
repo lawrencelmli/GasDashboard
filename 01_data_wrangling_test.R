@@ -66,9 +66,9 @@ Th2_monthly <- Th2_case_summary %>%
          monthly_n2o_co2e = consumption_n2o*0.00183*298) %>% 
   mutate(monthly_mean_FGF = mean(FGF, na.rm = T))
 
-saveRDS(Th2, "Th2.RDA")
-saveRDS(Th2_case_summary, "Th2_case_summary.RDA")
-saveRDS(Th2_gas, "Th2_gas.RDA")
-saveRDS(Th2_monthly, "Th2_monthly.RDA")
+# saveRDS(Th2, "Th2.RDA")
+# saveRDS(Th2_case_summary, "Th2_case_summary.RDA")
+# saveRDS(Th2_gas, "Th2_gas.RDA")
+# saveRDS(Th2_monthly, "Th2_monthly.RDA")
 
 

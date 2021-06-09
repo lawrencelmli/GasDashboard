@@ -47,3 +47,8 @@ data_list <- df %>%
   x <- 1:5
   tibble(behind = lag(x), x, ahead = lead(x))  
   
+  
+  view(data_list[[2]])
+
+  Th08$TIVA
+  
