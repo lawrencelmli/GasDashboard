@@ -46,6 +46,8 @@ data_import <- function(file_list) {
 
 data_summarise <- function(df) {
   
+  df <- clean_names(df)
+  
   case_summary <- c("Case duration", 
                     "Consumption O2", 
                     "Consumption Air", 
@@ -95,6 +97,20 @@ basic_calculations <- function(df) {
   
   return(df)
   
+}
+
+
+monthly_summary <- function(df) {
+  
+  df_monthly <- df %>% 
+    group_by(year_m, TIVA) %>% 
+    mutate(monthly_minutes = sum(case_duration_min, na.rm = T)) %>% 
+    mutate(monthly_sevo_co2e = consumption_sev/1000*1.522*130,
+           monthly_sevo_co2t = sevo_co2e/1000,
+           monthly_n2o_co2e = consumption_n2o*0.00183*298) %>% 
+    mutate(monthly_mean_FGF = mean(FGF, na.rm = T))
+  
+  return(df_monthly)
 }
 
 # Tring to use Nick's functions on flows:

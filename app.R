@@ -16,7 +16,7 @@ ui <- dashboardPage(
   
   dashboardHeader(
     
-    title = "Volatile Dash"
+    title = "Volatile Dashboard"
     
   ),
   
@@ -29,10 +29,56 @@ ui <- dashboardPage(
                icon = icon("book-open")
                ),
       
-      menuItem("Theatre 2",
-               tabName = "Th2",
+      menuItem("Theatre 1",
+               tabName = "Th01",
                icon = icon("industry")
-               )
+      ),
+      
+      menuItem("Theatre 2",
+               tabName = "Th02",
+               icon = icon("industry")
+      ),
+      
+      menuItem("Theatre 3",
+                 tabName = "Th03",
+                 icon = icon("industry")
+      ),
+      
+      menuItem("Theatre 4",
+                 tabName = "Th04",
+                 icon = icon("industry")
+      ),
+      
+      menuItem("Theatre 5",
+                 tabName = "Th05",
+                 icon = icon("industry")
+      ),
+      
+      menuItem("Theatre 6",
+                 tabName = "Th06",
+                 icon = icon("industry")
+      ),
+      
+      menuItem("Theatre 7",
+                 tabName = "Th07",
+                 icon = icon("industry")
+      ),
+      
+      menuItem("Theatre 8",
+                 tabName = "Th08",
+                 icon = icon("industry")
+      ),
+      
+      
+      menuItem("Theatre 9",
+               tabName = "Th09",
+               icon = icon("industry")
+               ),
+      
+      menuItem("Theatre 10",
+               tabName = "Th10",
+               icon = icon("industry")
+      )
       
     )
     
@@ -46,7 +92,7 @@ ui <- dashboardPage(
     tabItems(
       tabItem(tabName = "intro",
               
-              h3("Introduction"),
+              h2("Introduction"),
               
               p("This dashboard displays the data extracted from each anaesthetic machine in the corresponding theatres"),
               
@@ -57,7 +103,7 @@ ui <- dashboardPage(
               ),
       
       
-      tabItem(tabName = "Th2",
+      tabItem(tabName = "Th02",
               h3("Theatre 2 Perseus A500"),
               
               textOutput("period"),
