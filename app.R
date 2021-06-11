@@ -21,13 +21,16 @@ ui <- dashboardPage(
   
   dashboardHeader(
     
-    title = "Gas Use Dashboard"
+    title = "Gas Dashboard"
     
   ),
   
   dashboardSidebar(
     
     sidebarMenu(
+
+# sidebarMenu -------------------------------------------------------------
+
       
       menuItem("Introduction",
                tabName = "intro",
@@ -82,7 +85,13 @@ ui <- dashboardPage(
       menuItem("Theatre 10",
                tabName = "Th10",
                icon = icon("industry")
-      )
+      ),
+      
+      menuItem("Gas Flow Calculator",
+               tabName = "calculator",
+               icon = icon("calculator"))
+      
+      
       
     )
     
@@ -94,22 +103,31 @@ ui <- dashboardPage(
     tags$style("@import url(https://use.fontawesome.com/releases/v5.15.2/css/all.css);"), # to use the latest fontawesome icons
     
     tabItems(
+
+# Intro -------------------------------------------------------------------
+
+      
       tabItem(tabName = "intro",
               
-              h2("Introduction"),
+              h2("Project Fife Inhalational Low Flow (FILF)"),
               
-              p("This dashboard displays the data extracted from each anaesthetic machine in the corresponding theatres"),
+              p("This dashboard displays the data extracted from each anaesthetic machine from our Phase 3 theatres."),
               
-              p("The data do not include anaesthetic machines in the anaesthetic rooms"),
+              p("The data do not include anaesthetic machines in the anaesthetic rooms."),
               
-              p("Please note that due to inconsistency of the data, cases of duration less than 30 minutes were discarded"),
+              p("Please note that due to inconsistency of the data, cases of duration less than 30 minutes are not included in the analysis."),
               
               # strong(p("Acknowledgements:")),
               # 
-              # p("Many thanks to Dr Cathy Lawson for providing the formulae for CO2 Eq calculations and tips for QIP; 
-              #   and Dr Nick Lown for coding help.")
-              # 
+              # p("Many thanks to Dr Cathy Lawson for providing the formulae for CO2 Eq calculations, 
+              #   and Dr Nick Lown for coding help."),
+              
+              p("Copyright (c) Lawrence Li 2021")
+              
               ),
+
+# Th01 --------------------------------------------------------------------
+
       
       tabItem(tabName = "Th01",
               h3("Th01 Perseus A500"),
@@ -286,7 +304,10 @@ ui <- dashboardPage(
               
       ), 
       
-      
+
+# Th02 --------------------------------------------------------------------
+
+
       
       tabItem(tabName = "Th02",
               h3("Th02 Perseus A500"),
@@ -464,6 +485,9 @@ ui <- dashboardPage(
             ),
       
       
+
+# Th03 --------------------------------------------------------------------
+
       
       
       tabItem(tabName = "Th03",
@@ -642,6 +666,9 @@ ui <- dashboardPage(
       ),
       
       
+
+# Th04 --------------------------------------------------------------------
+
       
       
       tabItem(tabName = "Th04",
@@ -820,6 +847,9 @@ ui <- dashboardPage(
       ),
       
       
+
+# Th05 --------------------------------------------------------------------
+
       
       
       tabItem(tabName = "Th05",
@@ -998,6 +1028,9 @@ ui <- dashboardPage(
       ),
       
       
+
+# Th06 --------------------------------------------------------------------
+
       
       
       tabItem(tabName = "Th06",
@@ -1175,6 +1208,9 @@ ui <- dashboardPage(
               
       ),
       
+
+# Th07 --------------------------------------------------------------------
+
       
       
       
@@ -1353,6 +1389,9 @@ ui <- dashboardPage(
               
       ),
       
+
+# Th08 --------------------------------------------------------------------
+
       
       
       
@@ -1531,6 +1570,9 @@ ui <- dashboardPage(
               
       ),
       
+
+# Th09 --------------------------------------------------------------------
+
       
       
       
@@ -1710,6 +1752,9 @@ ui <- dashboardPage(
       ),
       
       
+
+# Th10 --------------------------------------------------------------------
+
       
       
       tabItem(tabName = "Th10",
@@ -1885,29 +1930,119 @@ ui <- dashboardPage(
                 
               ) #/ fluidRow
               
-      )
+      ),
+
+# Calculator --------------------------------------------------------------
+
+
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+      tabItem(tabName = "calculator",
+              h2("Gas Flow Calculator"),
+              
+              p("This calculator is based on the one available to download from the Association of Anaesthetists, wirtten by Dr Tom Pierce."),
+              
+              HTML(paste("You can download the Excel calculator", 
+                          a(href = "https://anaesthetists.org/Home/Resources-publications/Environment/Guide-to-green-anaesthesia/Anaesthetic-gases-calculator", "here."))),
+              
+              br(),
+              
+              br(),
+              
+              
+              fluidRow(
+                
+                column(
+                  
+                  width = 5,
+                  
+                  box(title = "Set Parameters",
+                      solidHeader = T,
+                      collapsible = T,
+                      status = "info",
+                      width = 12,
+                      
+                      selectInput(inputId = "mix",
+                                  label = strong("Air or Nitrous Oxide"),
+                                  choices = list("Air" = "air",
+                                                 "Nitrous Oxide" = "n2o"),
+                                  selected = "air"
+                                  
+                      ),
+                      
+                      sliderInput(inputId = "fgf",
+                                  label = strong("Set Fresh Gas Flow (L/min)"),
+                                  min = 0,
+                                  max = 15,
+                                  value = 3,
+                                  step = 0.05,
+                                  ticks = FALSE
+                                  
+                                  ),
+                      
+                      sliderInput(inputId = "fio2",
+                                  label = strong("Set FiO2"),
+                                  min = 0.2,
+                                  max = 1.0,
+                                  value = 0.40,
+                                  step = 0.05,
+                                  ticks = FALSE
+                                  
+                      ),
+                      
+                      sliderInput(inputId = "sevo",
+                                  label = strong("Set Sevoflurane (%)"),
+                                  min = 0,
+                                  max = 8.0,
+                                  value = 2.0,
+                                  step = 0.05,
+                                  ticks = FALSE
+                                  
+                      ),
+                      
+                      
+                      
+                      numericInput(inputId = "cost",
+                                   label = strong("Cost of Sevoflurane (250ml) (£)"),
+                                   value = 48
+                                   
+                                   ),
+                                   
+                      
+                      
+                      
+                      )
+                  
+                  ), #/ column
+                  
+                column(
+                  width = 7,
+                  
+                  box(title = "Environmental Impact",
+                      solidHeader = T,
+                      collapsible = T,
+                      status = "warning",
+                      width = 4,
+                      
+                      valueBoxOutput("calc_co2e", width = 12)
+                      
+                      ),
+                  
+                  box(title = "Cost of Sevoflurane",
+                      solidHeader = T,
+                      collapsible = T,
+                      status = "warning",
+                      width = 4,
+                      
+                      valueBoxOutput("calc_cost", width = 12)
+                      
+                      )
+                  
+                  )
+                
+                )
+              
+              
+              )
       
       
       
@@ -4755,6 +4890,128 @@ server <- function(input, output){
       theme_minimal()
     
   })
+  
+  co2e <- reactive({
+    
+    fgf <- input$fgf
+    fio2 <- input$fio2
+    sevo <- input$sevo
+    MW <- 200
+    GWP <- 130
+    
+    mix <- input$mix
+    
+    o2_per_min_with_air <- (fio2 - 0.209)*fgf/0.791
+    
+    o2_per_min_with_n2o <- fio2*fgf
+    
+    air_per_min <- fgf - o2_per_min_with_air
+    
+    fgf_with_vapour <- fgf + (sevo/100*fgf)
+    
+    calc_fio2_with_air <- (o2_per_min_with_air + (air_per_min * 0.209))/fgf_with_vapour
+    
+    calc_fio2_with_n2o <- o2_per_min_with_n2o/fgf_with_vapour
+    
+    co2e_o2_air <- o2_per_min_with_air * 0.0004 * 60
+    
+    co2e_o2_n2o <- o2_per_min_with_n2o* 0.0004 * 60
+    
+    sevo_ml_per_min <- (fgf * 1000) * (sevo/100)
+    
+    sevo_mols_per_min <- sevo_ml_per_min/24400
+    
+    sevo_kg_per_min <- MW*sevo_mols_per_min/1000
+    
+    sevo_kg_per_hr <- sevo_kg_per_min * 60
+    
+    co2e_sevo <- sevo_kg_per_hr * GWP
+    
+    co2e_total_air <- co2e_o2_air + co2e_sevo
+    
+    
+    # Nitrous -----------------------------------------------------------------
+    
+    o2_per_min_with_n2o <- fio2 * fgf
+    
+    calc_fio2_with_n2o <- o2_per_min_with_n2o/fgf_with_vapour
+    
+    n2o_per_min <- (1 - fio2)* fgf
+    
+    n2o_per_hr <- n2o_per_min * 60
+    
+    n2o_mols_per_hr <- n2o_per_hr/24.4
+    
+    n2o_kg_per_hour <- (n2o_mols_per_hr * 44)/1000
+    
+    co2e_n20 <- n2o_kg_per_hour * 310
+    
+    co2e_o2_with_n2o <- co2e_o2_n2o + co2e_n20
+    
+    co2e_total_n2o <- co2e_o2_with_n2o + co2e_sevo
+    
+    if(mix == "air"){
+      co2e_final <- co2e_total_air
+    }else{
+      co2e_final <- co2e_total_n2o
+      
+    }
+    return(co2e_final)
+    
+  })
+  
+  output$calc_co2e <- renderValueBox({
+    
+    valueBox(value = round(co2e(), 2),
+             subtitle = "kg of CO2e per hr (total)",
+             icon = icon("industry"),
+             color = "red"
+             )
+    
+  })
+  
+  
+  cost_calc <- reactive({
+    
+    fgf <- input$fgf
+    fio2 <- input$fio2
+    sevo <- input$sevo
+    MW <- 200
+    GWP <- 130
+    density <- 0.00152
+    unit_vol <- 250
+    unit_cost <- input$cost
+    
+    sevo_ml_per_min <- (fgf * 1000) * (sevo/100)
+    
+    sevo_mols_per_min <- sevo_ml_per_min/24400
+    
+    sevo_kg_per_min <- MW*sevo_mols_per_min/1000
+    
+    sevo_kg_per_hr <- sevo_kg_per_min * 60
+    
+    sevo_vol_per_hr <- sevo_kg_per_hr/density
+    
+    sevo_fraction_bottle <- sevo_vol_per_hr/unit_vol
+    
+    sevo_cost_per_hr <- sevo_fraction_bottle * unit_cost
+    
+    return(sevo_cost_per_hr)
+    
+    
+  })
+  
+  output$calc_cost <- renderValueBox({
+    
+    valueBox(value = paste0("£", round(cost_calc(), 2)
+                            ),
+             subtitle = "per hour",
+             icon = icon("money-bill"),
+             color = "yellow"
+             )
+  })
+  
+  
 }
 
 
