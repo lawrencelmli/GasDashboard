@@ -15,7 +15,11 @@ list_of_files <- list.files(path = here("data"),
                         pattern = "\\.txt$", 
                         full.names = TRUE)
 
-# These are the basic elements of the functionly
+new_list_of_files <- list.files(path = here("data", "2021_07_26"),
+                                pattern = "\\.txt$",
+                                full.names = TRUE) # enter new folder with date
+
+# These are the basic elements of the function
 
 # file_names <- file_list %>%
 #   map_chr(~ str_sub(.x, start = 92, end = 95))
@@ -38,6 +42,36 @@ data_import <- function(file_list) {
   
   return(data_list)
 
+}
+
+new_data_import <- function(file_list) {
+  
+  df_names <- file_list %>% 
+    map_chr(~ str_sub(.x, start = 103, end = 106))  
+  
+  data_list <- map(file_list, read.csv)
+  
+  # data_list <- map(data_list, clean_names)
+  
+  names(data_list) <- df_names
+  
+  return(data_list)
+  
+}
+
+
+
+# Merging Data ------------------------------------------------------------
+
+rbind_df <- function(old, new) {
+  
+  new <- new %>% 
+    filter(!date_time_2 %in% old$date_time_2)
+  
+  merged_df <- rbind(old, new)
+  
+  return(merged_df)
+  
 }
 
 
@@ -130,6 +164,16 @@ extract_df_from_list <- function(list_of_dfs, envir = .GlobalEnv) {
     assign(names(list_of_dfs[i]),
            list_of_dfs[[i]],
            envir = envir)
+    
+  }
+}
+
+new_extract_df_from_list <- function(list_of_dfs, envir = .GlobalEnv) {
+  
+  for (i in 1:length(list_of_dfs)) {
+    paste0("new_", assign(names(list_of_dfs[i]),
+           list_of_dfs[[i]],
+           envir = envir))
     
   }
 }

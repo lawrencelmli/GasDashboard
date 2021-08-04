@@ -2056,6 +2056,9 @@ ui <- dashboardPage(
 
 
 
+# Server ------------------------------------------------------------------
+
+
 
 
 server <- function(input, output){
@@ -2235,8 +2238,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -2265,8 +2267,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -2290,7 +2291,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec07c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA", "Volatile")) +
       theme_minimal()
       
       
@@ -2519,8 +2520,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -2549,8 +2549,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -2574,7 +2573,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec07c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA","Volatile")) +
       theme_minimal()
     
     
@@ -2803,8 +2802,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -2833,8 +2831,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -2858,7 +2855,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec07c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA","Volatile")) +
       theme_minimal()
     
     
@@ -3087,8 +3084,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -3117,8 +3113,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -3142,7 +3137,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec07c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA","Volatile")) +
       theme_minimal()
     
     
@@ -3371,8 +3366,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -3401,8 +3395,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -3426,7 +3419,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec07c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA","Volatile")) +
       theme_minimal()
     
     
@@ -3655,8 +3648,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -3685,8 +3677,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -3710,7 +3701,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec07c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA","Volatile")) +
       theme_minimal()
     
     
@@ -3939,8 +3930,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -3969,8 +3959,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -3994,7 +3983,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec07c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA","Volatile")) +
       theme_minimal()
     
     
@@ -4221,8 +4210,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -4251,8 +4239,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -4276,7 +4263,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec08c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA","Volatile")) +
       theme_minimal()
     
     
@@ -4502,8 +4489,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -4532,8 +4518,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -4557,7 +4542,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec09c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA","Volatile")) +
       theme_minimal()
     
     
@@ -4784,8 +4769,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
     
@@ -4814,8 +4798,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_colour_manual(name = "Agent",
                           values = c("Sevo" = "#FABD2F",
-                                     "Nitrous" = "#0095E6"),
-                          labels = c("Nitrous", "Sevo")) +
+                                     "Nitrous" = "#0095E6")) +
       theme_minimal()
     
   })
@@ -4839,7 +4822,7 @@ server <- function(input, output){
             axis.text = element_text(size = 12)) +
       scale_color_manual(name = "Anaesthetic Type",
                          values = c('TRUE' = '#8ec09c','FALSE' = '#693a7c'),
-                         labels = c("Volatile","TIVA")) +
+                         labels = c("TIVA","Volatile")) +
       theme_minimal()
     
     
